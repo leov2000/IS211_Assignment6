@@ -19,13 +19,13 @@ def convertFahrenheitToCelsius(fahrenheit):
     """
     (°F − 32) × 5/9 = °C
     """
-    return (fahrenheit - 32) * 5 / 9
+    return (fahrenheit - 32) * (5 / 9)
 
 def convertFahrenheitToKelvin(fahrenheit):
     """
     (°F − 32) × 5/9 + 273.15 = K
     """
-    return (fahrenheit - 32) * 5/9 + 273.15
+    return (fahrenheit - 32) * (5 / 9) + 273.15
 
 def convertKelvinToFahrenheit(kelvin):
     """
