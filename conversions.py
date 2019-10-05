@@ -4,7 +4,6 @@ def convertCelsiustoKelvin(celsius):
     """
     return celsius + 273.15
 
-
 def convertCelsiusToFahrenheit(celsius):
     """
     (°C × 9/5) + 32 = °F
