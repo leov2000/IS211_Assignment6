@@ -24,3 +24,18 @@ class TestKelvin(unittest.TestCase):
 
     def test_kelvin_to_celsius_with_1_should_be_neg_272_15(self):
         self.assertEqual(convertKelvinToCelsius(1.0), -272.15)
+
+    def test_kelvin_to_fahrenheit_with_300_should_be_80_33(self):
+        self.assertEqual(convertKelvinToFahrenheit(300.0), 80.33)
+
+    def test_kelvin_to_fahrenheit_with_273_15_should_be_32(self):
+        self.assertEqual(convertKelvinToFahrenheit(273.15), 32)
+
+    def test_kelvin_to_fahrenheit_with_370_15_should_be_206_6(self):
+        self.assertEqual(convertKelvinToFahrenheit(370.15), 206.6)
+
+    def test_kelvin_to_fahrenheit_with_380_should_be_224_33(self):
+        self.assertEqual(convertKelvinToFahrenheit(380.0), 224.33)
+
+    def test_kelvin_to_fahrenheit_with_1_should_be_neg_457_87(self):
+        self.assertEqual(convertKelvinToFahrenheit(1.0), -457.87)
