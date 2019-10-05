@@ -1,6 +1,3 @@
-from fractions import Fraction
-from decimal import getcontext, Decimal
-
 def convertCelsiustoKelvin(celsius):
     """
     °C + 273.15 = K
