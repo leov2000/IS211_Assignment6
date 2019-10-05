@@ -1,9 +1,10 @@
 
+class ConversionNotPossible(Exception):
+    pass
+
 def convert(fromUnit, toUnit, value):
     from_unit = fromUnit.lower()
     to_unit = toUnit.lower()
-
-
 
     temperature_dict = {
         'celsius': {
@@ -42,3 +43,16 @@ def convert(fromUnit, toUnit, value):
 
     }
 
+    unit_type = temperature_dict if from_unit in temperature_dict else length_dict
+
+    if to_unit not in unit_type:
+        exception_string = f'A Conversion Exception Occured with: {str((from_unit, to_unit))}'
+
+        raise ConversionNotPossible(exception_string)
+    else:
+        print(unit_type[from_unit][to_unit](value)) 
+
+
+if __name__ == '__main__':
+    convert('fahrenheit', 'kelvin', 100)
+    convert('meters', 'fahrenheit', 1)
