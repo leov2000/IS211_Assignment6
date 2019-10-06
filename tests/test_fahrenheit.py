@@ -11,7 +11,7 @@ class TestFahrenheit(unittest.TestCase):
     """Fahrenheit Conversion Tests
         This test class tests:
             Fahrenheit -> Kelvin
-            Fahrenheit -> Fahrenheit
+            Fahrenheit -> Celsius
         conversions
     """
 
