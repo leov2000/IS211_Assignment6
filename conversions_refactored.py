@@ -10,17 +10,17 @@ def convert(fromUnit, toUnit, value):
         'celsius': {
             'kelvin': lambda celsius: celsius + 273.15,
             'fahrenheit': lambda celsius: (celsius * 9 / 5) + 32,
-            'celsius': lambda identity: identity 
+            'celsius': lambda celsius: float(celsius) 
         },
         'fahrenheit': {
             'kelvin': lambda fahrenheit: round((fahrenheit - 32) * (5 / 9) + 273.15, 3),
             'celsius': lambda fahrenheit: (fahrenheit - 32) * (5 / 9),
-            'fahrenheit': lambda identity: identity 
+            'fahrenheit': lambda fahrenheit: float(fahrenheit) 
         },
         'kelvin':  {
             'celsius': lambda kelvin: round(kelvin - 273.15, 2),
             'fahrenheit': lambda kelvin: round((kelvin - 273.15) * (9 / 5) + 32, 2),
-            'kelvin': lambda identity: identity 
+            'kelvin': lambda kelvin: float(kelvin) 
         },
     }
 
@@ -28,17 +28,17 @@ def convert(fromUnit, toUnit, value):
         'meters': {
           'miles': lambda meter: meter / 1609.344,
           'yards': lambda meter: meter * 1.094,
-          'meters': lambda identity: identity 
+          'meters': lambda meters: float(meters)  
         },
         'miles': {
             'meters': lambda miles: miles * 1609.344,
             'yards': lambda miles: miles * 1760,
-            'miles': lambda identity: identity 
+            'miles': lambda miles: float(miles)  
         },
         'yards': {
             'meters': lambda yards: yards / 1.094,
             'miles': lambda yards: yards / 1760,
-            'yards': lambda identity: identity 
+            'yards': lambda yards: float(yards)  
         }
 
     }
@@ -50,9 +50,4 @@ def convert(fromUnit, toUnit, value):
 
         raise ConversionNotPossible(exception_string)
     else:
-        print(unit_type[from_unit][to_unit](value)) 
-
-
-if __name__ == '__main__':
-    convert('fahrenheit', 'kelvin', 100)
-    convert('meters', 'fahrenheit', 1)
+        return unit_type[from_unit][to_unit](value) 
