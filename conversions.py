@@ -36,7 +36,7 @@ def convertFahrenheitToCelsius(fahrenheit):
     Returns:
         A converted celsius value.
     """
-    return (fahrenheit - 32) * (5 / 9)
+    return round((fahrenheit - 32) * (5 / 9), 4)
 
 def convertFahrenheitToKelvin(fahrenheit):
     """
