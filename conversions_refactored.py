@@ -3,6 +3,32 @@ class ConversionNotPossible(Exception):
     pass
 
 def convert(fromUnit, toUnit, value):
+    """
+    The main convert function that takes care of the conversion by unit measurement.
+
+    The convert function houses two measurement dicts: temperature & length
+    within each respective dict are the relative conversions. The conversion 
+    happens through a two step dict k:v lookup. 
+
+    temp -> celsius -> conversion lambda
+    temp -> fahrenheit -> conversion lambda
+    temp -> kelvin -> conversion lambda
+
+
+    length -> meters -> conversion lambda
+    length -> miles -> conversion lambda
+    length -> yards -> conversion lambda
+
+    Args:
+        fromUnit(str): A unit of measurement.
+        toUnit(str):   A unit of measurement.
+        value(float):  The measurement value for conversion.
+
+    Returns:
+        A conversion float or an Exception if there's a type mismatch
+
+    """
+    
     from_unit = fromUnit.lower()
     to_unit = toUnit.lower()
 
