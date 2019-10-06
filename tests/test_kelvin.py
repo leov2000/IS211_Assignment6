@@ -8,13 +8,18 @@ sys.path.append(os.path.join(module_dir, '../'))
 from conversions import convertKelvinToCelsius, convertKelvinToFahrenheit
 
 class TestKelvin(unittest.TestCase):
-    """Kelvin Conversion Tests"""
+    """Kelvin Conversion Tests
+        This test class tests:
+            Kelvin -> Celsius
+            Kelvin -> Fahrenheit
+        conversions
+    """
 
     def test_kelvin_to_celsius_with_300_should_be_26_85(self):
         self.assertEqual(convertKelvinToCelsius(300.0), 26.85)
 
     def test_kelvin_to_celsius_with_273_15_should_be_0(self):
-        self.assertEqual(convertKelvinToCelsius(273.15), 0)
+        self.assertEqual(convertKelvinToCelsius(273.15), 0.0)
 
     def test_kelvin_to_celsius_with_370_15_should_be_97(self):
         self.assertEqual(convertKelvinToCelsius(370.15), 97)
