@@ -1,4 +1,4 @@
-### The tests.py delegates running the test files located /tests directory 
+### The tests.py delegates running the test files located `/tests` directory 
 ### To run the tests:
 ### `python3 tests.py`
 
