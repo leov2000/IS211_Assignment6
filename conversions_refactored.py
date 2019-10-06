@@ -40,7 +40,7 @@ def convert(fromUnit, toUnit, value):
         },
         'fahrenheit': {
             'kelvin': lambda fahrenheit: round((fahrenheit - 32) * (5 / 9) + 273.15, 3),
-            'celsius': lambda fahrenheit: (fahrenheit - 32) * (5 / 9),
+            'celsius': lambda fahrenheit: round((fahrenheit - 32) * (5 / 9), 4),
             'fahrenheit': lambda fahrenheit: float(fahrenheit) 
         },
         'kelvin':  {

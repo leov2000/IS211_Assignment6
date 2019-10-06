@@ -8,7 +8,17 @@ sys.path.append(os.path.join(module_dir, '../'))
 from conversions_refactored import convert, ConversionNotPossible
 
 class TestConvert(unittest.TestCase):
-    """Convert Tests"""
+    """Refactored Conversion Tests
+
+        checks that all temperature conversions are working
+
+        checks that all distance conversions are working 
+
+        check that converting from one unit to itself returns the same value for all units
+
+        checks that converting from incompatible unit types raise a `ConversionNotPossible` exception
+
+    """
 
     @classmethod
     def setUpClass(cls):
@@ -17,7 +27,97 @@ class TestConvert(unittest.TestCase):
         cls.celsius = 'celsius'
         cls.meters = 'meters'
         cls.miles = 'miles'
-        cls.yards = 'yards' 
+        cls.yards = 'yards'
+
+    def test_celsius_conversion_one(self):
+        self.assertEqual(convert(self.fahrenheit, self.celsius, 78.0), 25.5556)
+
+    def test_celsius_conversion_two(self):
+        self.assertEqual(convert(self.fahrenheit, self.celsius, 55.0), 12.7778)
+
+    def test_celsius_conversion_three(self):
+        self.assertEqual(convert(self.kelvin, self.celsius, 333.0), 59.85)
+
+    def test_celsius_conversion_four(self):
+        self.assertEqual(convert(self.kelvin, self.celsius, -550.0), -823.15)
+
+    def test_celsius_conversion_five(self):
+        self.assertEqual(convert(self.fahrenheit, self.celsius, -78.0), -61.1111)
+
+    def test_fahrenheit_conversion_one(self):
+        self.assertEqual(convert(self.celsius, self.fahrenheit, 78.0), 172.4)
+
+    def test_fahrenheit_conversion_two(self):
+        self.assertEqual(convert(self.celsius, self.fahrenheit, 55.0), 131.0)
+
+    def test_fahrenheit_conversion_three(self):
+        self.assertEqual(convert(self.kelvin, self.fahrenheit, 333.0), 139.73)
+
+    def test_fahrenheit_conversion_four(self):
+        self.assertEqual(convert(self.kelvin, self.fahrenheit, -550.0), -1449.67)
+
+    def test_fahrenheit_conversion_five(self):
+        self.assertEqual(convert(self.celsius, self.fahrenheit, -78.0), -108.4)
+
+    def test_kelvin_conversion_one(self):
+        self.assertEqual(convert(self.celsius, self.kelvin, 78.0), 351.15)
+
+    def test_kelvin_conversion_two(self):
+        self.assertEqual(convert(self.celsius, self.kelvin, 55.0), 328.15)
+
+    def test_kelvin_conversion_three(self):
+        self.assertEqual(convert(self.fahrenheit, self.kelvin, 333.0), 440.372)
+
+    def test_kelvin_conversion_four(self):
+        self.assertEqual(convert(self.fahrenheit, self.kelvin, -550.0), -50.183)
+
+    def test_kelvin_conversion_five(self):
+        self.assertEqual(convert(self.celsius, self.kelvin, -78.0), 195.14999999999998)
+
+    def test_meters_conversion_one(self):
+        self.assertEqual(convert(self.yards, self.meters, 78.0), 71.2979890310786)
+
+    def test_meters_conversion_two(self):
+        self.assertEqual(convert(self.yards, self.meters, 55.0), 50.274223034734916)
+
+    def test_meters_conversion_three(self):
+        self.assertEqual(convert(self.miles, self.meters, 333.0), 535911.552)
+
+    def test_meters_conversion_four(self):
+        self.assertEqual(convert(self.miles, self.meters, -550.0), -885139.2000000001)
+
+    def test_meters_conversion_five(self):
+        self.assertEqual(convert(self.yards, self.meters, -78.0), -71.2979890310786)
+
+    def test_miles_conversion_one(self):
+        self.assertEqual(convert(self.meters, self.miles, 78.0), 0.04846695299451205)
+
+    def test_miles_conversion_two(self):
+        self.assertEqual(convert(self.meters, self.miles, 55.0), 0.03417541557305337)
+
+    def test_miles_conversion_three(self):
+        self.assertEqual(convert(self.yards, self.miles, 333.0), 0.18920454545454546)
+
+    def test_miles_conversion_four(self):
+        self.assertEqual(convert(self.yards, self.miles, -550.0), -0.3125)
+
+    def test_miles_conversion_five(self):
+        self.assertEqual(convert(self.meters, self.miles, -78.0), -0.04846695299451205)
+
+    def test_yards_conversion_one(self):
+        self.assertEqual(convert(self.miles, self.yards, 78.0), 137280.0)
+
+    def test_yards_conversion_two(self):
+        self.assertEqual(convert(self.miles, self.yards, 55.0), 96800)
+
+    def test_yards_conversion_three(self):
+        self.assertEqual(convert(self.meters, self.yards, 333.0), 364.302)
+
+    def test_yards_conversion_four(self):
+        self.assertEqual(convert(self.meters, self.yards, -550.0), -601.7)
+
+    def test_yards_conversion_five(self):
+        self.assertEqual(convert(self.miles, self.yards, -78.0), -137280.0)        
 
     def test_kelvin_to_fahrenheit_then_fahrenheit_to_kelvin(self):
         value = 22.0
@@ -30,7 +130,7 @@ class TestConvert(unittest.TestCase):
         self.assertEqual(convert(self.kelvin, self.celsius, celsius_to_kelvin), value)
     
     def test_fahrenheit_to_celsius_then_celsius_to_fahrenheit(self):
-        value = 78.0
+        value = 12.0
         fahrenheit_to_celsius = convert(self.fahrenheit, self.celsius, value)
         self.assertEqual(convert(self.celsius, self.fahrenheit, fahrenheit_to_celsius), value)
 
@@ -120,3 +220,5 @@ class TestConvert(unittest.TestCase):
 
     def test_length_to_temperature_exception_yards_scenario_3(self):
         self.assertRaises(ConversionNotPossible, convert, self.yards, self.kelvin, 15)
+
+
