@@ -132,7 +132,7 @@ class TestConvert(unittest.TestCase):
     def test_fahrenheit_to_celsius_then_celsius_to_fahrenheit(self):
         value = 12.0
         fahrenheit_to_celsius = convert(self.fahrenheit, self.celsius, value)
-        self.assertEqual(convert(self.celsius, self.fahrenheit, fahrenheit_to_celsius), value)
+        self.assertEqual(round(convert(self.celsius, self.fahrenheit, fahrenheit_to_celsius)), value)
 
     def test_meters_to_miles_then_miles_to_meters(self):
         value = 1.0
