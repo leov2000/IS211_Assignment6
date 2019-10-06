@@ -67,8 +67,56 @@ class TestConvert(unittest.TestCase):
     def test_celsius_to_itself(self):
         self.assertEqual(convert(self.celsius, self.celsius, 555.0), 555.0)
     
-    def test_temperature_to_length_exception(self):
+    def test_temperature_to_length_exception_celsius_scenario_1(self):
         self.assertRaises(ConversionNotPossible, convert, self.celsius, self.miles, 5)
-    
-    def test_length_to_temperature_exception(self):
-        self.assertRaises(ConversionNotPossible, convert, self.meters, self.kelvin, 232.15)
+
+    def test_temperature_to_length_exception_celsius_scenario_2(self):
+        self.assertRaises(ConversionNotPossible, convert, self.celsius, self.meters, 15)
+
+    def test_temperature_to_length_exception_celsius_scenario_3(self):
+        self.assertRaises(ConversionNotPossible, convert, self.celsius, self.yards, 5)
+
+    def test_temperature_to_length_exception_fahrenheit_scenario_1(self):
+        self.assertRaises(ConversionNotPossible, convert, self.fahrenheit, self.miles, 15)
+
+    def test_temperature_to_length_exception_fahrenheit_scenario_2(self):
+        self.assertRaises(ConversionNotPossible, convert, self.fahrenheit, self.meters, 5)
+
+    def test_temperature_to_length_exception_fahrenheit_scenario_3(self):
+        self.assertRaises(ConversionNotPossible, convert, self.fahrenheit, self.yards, 15)
+
+    def test_temperature_to_length_exception_celsius_kelvin_scenario_1(self):
+        self.assertRaises(ConversionNotPossible, convert, self.kelvin, self.miles, 5)
+
+    def test_temperature_to_length_exception_kelvin_scenario_2(self):
+        self.assertRaises(ConversionNotPossible, convert, self.kelvin, self.meters, 15)
+
+    def test_temperature_to_length_exception_kelvin_scenario_3(self):
+        self.assertRaises(ConversionNotPossible, convert, self.kelvin, self.yards, 5)
+
+    def test_length_to_temperature_exception_meters_scenario_1(self):
+        self.assertRaises(ConversionNotPossible, convert, self.meters, self.celsius, 15)
+
+    def test_length_to_temperature_exception_meters_scenario_2(self):
+        self.assertRaises(ConversionNotPossible, convert, self.meters, self.fahrenheit, 5)
+
+    def test_length_to_temperature_exception_meters_scenario_3(self):
+        self.assertRaises(ConversionNotPossible, convert, self.meters, self.kelvin, 15)
+
+    def test_length_to_temperature_exception_miles_scenario_1(self):
+        self.assertRaises(ConversionNotPossible, convert, self.miles, self.celsius, 5)
+
+    def test_length_to_temperature_exception_miles_scenario_2(self):
+        self.assertRaises(ConversionNotPossible, convert, self.miles, self.fahrenheit, 15)
+
+    def test_length_to_temperature_exception_miles_scenario_3(self):
+        self.assertRaises(ConversionNotPossible, convert, self.miles, self.kelvin, 5)
+
+    def test_length_to_temperature_exception_yards_scenario_1(self):
+        self.assertRaises(ConversionNotPossible, convert, self.yards, self.celsius, 15)
+
+    def test_length_to_temperature_exception_yards_scenario_2(self):
+        self.assertRaises(ConversionNotPossible, convert, self.yards, self.fahrenheit, 5)
+
+    def test_length_to_temperature_exception_yards_scenario_3(self):
+        self.assertRaises(ConversionNotPossible, convert, self.yards, self.kelvin, 15)
