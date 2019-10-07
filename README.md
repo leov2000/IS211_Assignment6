@@ -2,8 +2,8 @@
 ### To run the tests use the following command:
 ### `python3 tests.py`
 
-### The reason behind architecting the test suite in this manner is to increase the verbosity of the test results
-### This can easier and better with the testing library `nose` but wanted to experiment using the native `unittest` module
+### The reason behind coding the test suite in this manner is to increase the verbosity of the test results.
+### The outcome can be done in a simpler way using `nose` but wanted to experiement with `unittest`.
 
 ## OUTPUT format for tests in this repo: 
 
