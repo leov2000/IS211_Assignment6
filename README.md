@@ -1,10 +1,9 @@
-### The tests.py delegates running the test files located `/tests` directory 
-### To run the tests:
+### The tests.py file is responsible for running the tests located at the `/tests` directory 
+### To run the tests use the following command:
 ### `python3 tests.py`
 
-### The goal of architecting the test suite in this way is to increase the verbosity of the tests
-### to show the output of each test, the functions have a descriptive naming convention that lends to its verbosity.
-### This assignment is with `nose` but wanted to experiment using the native `unittest` module
+### The reason behind architecting the test suite in this manner is to increase the verbosity of the test results
+### This can easier and better with the testing library `nose` but wanted to experiment using the native `unittest` module
 
 ## OUTPUT format for tests in this repo: 
 
